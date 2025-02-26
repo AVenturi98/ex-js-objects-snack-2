@@ -119,6 +119,7 @@ Qual è il metodo migliore per clonare l’oggetto restaurant, e perché?
     console.log(secondBurger.maker.name); // ?
     console.log(hamburger.maker.restaurant.name); // ?
     console.log(secondBurger.maker.restaurant.name); // ?
+
 Senza lanciare il codice, riesci a prevedere cosa viene stampato in console?
 Quanti oggetti sono stati creati in memoria durante l'esecuzione di questo codice?
 
@@ -128,3 +129,30 @@ Quanti oggetti sono stati creati in memoria durante l'esecuzione di questo codic
 # console.log(secondBurger.maker.restaurant.name); // Hyur's II
 
 # Gli oggetti creati saranno 2, hamburger e newRestaurant
+
+🎯 Code Question 6 (Bonus)
+    const chef = {
+        name: "Chef Hyur",
+        age: 29,
+        makeBurger: (num = 1) => {
+            console.log(`Ecco ${num} hamburger per te!`);
+        },
+        restaurant: {
+            name: "Hyur's Burgers",
+            welcomeClient: () => {
+                console.log("Benvenuto!");
+            },
+            address: {
+                street: 'Main Street',
+                number: 123,
+                showAddress: () => {
+                    console.log("Main Street 123");
+                }
+            },
+            isOpen: true,
+        }
+    }
+
+Qual è il metodo migliore per clonare l’oggetto chef, e perché?
+
+# Il metodo migliore ritengo sia il metodo <Spread> perchè l'unica maniera in grado di clonare delle funzioni.
