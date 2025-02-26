@@ -92,3 +92,39 @@ Qual è il metodo migliore per clonare l’oggetto restaurant, e perché?
 # L'oggetto "chef" al suo interno contiene una funzione, perciò l'unica maniera per riottenere una funzione è con il metodo <Spread>, anche se faremo una copia 'superficiale' all'oggetto stesso.
 # L'oggetto "restaurant" avendo al suo interno dei valori più complessi come il metodo Date(), converrà usare una <Shallow Copy> in questa maniera:
 # (const restaurant2 = JSON.parse(JSON.stringify(restaurant)));
+
+🎯 Code Question 5 (Bonus)
+    const hamburger = { 
+        name: "Cheese Burger", 
+        weight: 250,
+        maker: {
+            name: "Anonymous Chef",
+            restaurant: {
+                name: "Hyur's Burgers",
+                address: "Main Street, 123",
+                isOpen: true,
+            },
+            age: 29
+        }
+    };
+    ​
+    const newRestaurant = {...hamburger.maker.restaurant};
+    newRestaurant.name = "Hyur's II";
+    newRestaurant.address = "Second Street, 12";
+    const secondBurger = {...hamburger};
+    secondBurger.maker.restaurant = newRestaurant;
+    secondBurger.maker.name = "Chef Hyur";
+    ​
+    console.log(hamburger.maker.name); // ?
+    console.log(secondBurger.maker.name); // ?
+    console.log(hamburger.maker.restaurant.name); // ?
+    console.log(secondBurger.maker.restaurant.name); // ?
+Senza lanciare il codice, riesci a prevedere cosa viene stampato in console?
+Quanti oggetti sono stati creati in memoria durante l'esecuzione di questo codice?
+
+# console.log(hamburger.maker.name); // Chef Hyur
+# console.log(secondBurger.maker.name); // Chef Hyur
+# console.log(hamburger.maker.restaurant.name); // Hyur's II
+# console.log(secondBurger.maker.restaurant.name); // Hyur's II
+
+# Gli oggetti creati saranno 2, hamburger e newRestaurant
