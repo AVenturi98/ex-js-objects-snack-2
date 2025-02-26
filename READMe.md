@@ -67,3 +67,28 @@ const thirdBurger = structuredClone(hamburger);
 Quanti oggetti sono stati creati in memoria durante l'esecuzione di questo codice?
 
 # Gli oggetti creati in questione saranno 3, uno per ogni variabile dichiarata. Con il metodo structuredClone() si potrà ottenere una <Deep Copy> del valore hambuger, dando la possibilità di ottenere anche oggetti complessi ma senza poter copiare delle funzioni.
+
+🏆 Code Question 4
+    const chef = {
+        name: "Chef Hyur",
+        age: 29,
+        makeBurger: (num = 1) => {
+            console.log(`Ecco ${num} hamburger per te!`);
+        },
+    }
+    ​
+    const restaurant = {
+        name: "Hyur's Burgers",
+        address: {
+            street: 'Main Street',
+            number: 123,
+        },
+        openingDate: new Date(2025, 3, 11),
+        isOpen: false,
+    };
+Qual è il metodo migliore per clonare l’oggetto chef, e perché?
+Qual è il metodo migliore per clonare l’oggetto restaurant, e perché?
+
+# L'oggetto "chef" al suo interno contiene una funzione, perciò l'unica maniera per riottenere una funzione è con il metodo <Spread>, anche se faremo una copia 'superficiale' all'oggetto stesso.
+# L'oggetto "restaurant" avendo al suo interno dei valori più complessi come il metodo Date(), converrà usare una <Shallow Copy> in questa maniera:
+# (const restaurant2 = JSON.parse(JSON.stringify(restaurant)));
